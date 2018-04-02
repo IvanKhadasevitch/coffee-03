@@ -1,0 +1,64 @@
+.top-buffer {
+    /*margin-top:60px;*/
+    margin-top:15px;
+}
+.error {
+    /*color: red;*/
+    color: mediumvioletred;
+}
+.approve {
+    text-align: center;
+    color: mediumseagreen; /* Цвет текста */
+    font-weight: 700; /* Жирное начертание */
+}
+/*.numberInput {*/
+    /*width: 50px;*/
+    /*height: 25px;*/
+/*}*/
+.textLeft {
+    text-align: left;
+    font-size: 16px;
+}
+.buttonRefer {
+    border: 1px solid #333; /* Рамка */
+    display: inline-block;
+    padding: 5px 15px; /* Поля */
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #000; /* Цвет текста */
+}
+.buttonRefer:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Тень */
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce); /* Градиент */
+    color: #a00;
+}
+.tableHeader {
+    font-size: large;
+    color: blue;
+}
+.gumHeader {
+    /*font-size: 1.25vw; !*size = 1.25% of screen wide*!*/
+    font-size: 1.45vw; /*size = 1.25% of screen wide*/
+    text-align: center;
+    cursor:pointer; /*only for table with sort*/
+}
+tr.gumRow {
+    /*font-size: 1.1vw;*/
+    font-size: 1.3vw;
+}
+/*tr.Expired {*/
+    /*color: mediumvioletred; !* Цвет текста *!*/
+    /*font-weight: 300; !* Жирное начертание *!*/
+/*}*/
+/*tr.Current {*/
+    /*color: mediumseagreen; !* Цвет текста *!*/
+    /*font-weight: 600; !* Жирное начертание *!*/
+/*}*/
+td.Center {
+    text-align: center;
+}
+td.Left {
+    text-align: left;
+}
+td.Right {
+    text-align: right;
+}

@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>coffee-03</artifactId>
+        <groupId>by.ivan</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>coffee-03-web</artifactId>
+    <packaging>war</packaging>
+    <name>coffee-03-web Maven Webapp</name>
+
+    <build>
+        <finalName>coffee</finalName>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>by.ivan</groupId>
+            <artifactId>coffee-03-services</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--Lombok will be provided on Runtime by Hibernate, now need for compile only=> scope=provided-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!--for web-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

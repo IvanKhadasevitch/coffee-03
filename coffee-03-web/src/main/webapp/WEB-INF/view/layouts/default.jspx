@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+      xmlns:u="urn:jsptagdir:/WEB-INF/tags/utils"
+      xmlns:com="urn:jsptagdir:/WEB-INF/tags/common">
+
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html;charset UTF-8"/>
+
+    <script>
+        var contextUrl = '${pageContext.request.contextPath}';
+    </script>
+    <head>
+        <![CDATA[
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assests/css/style.css" type="text/css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        ]]>
+
+        <style>
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+
+            /* Add a gray background color and some padding - отступ от края to the footer */
+            footer {
+                background-color: #f2f2f2;
+                padding: 25px;
+            }
+        </style>
+        <!--/* set English as default languge */-->
+        <c:if test="${empty sessionScope.locale}">
+            <c:set scope="session" var="locale" value="en"/>
+        </c:if>
+
+        <!--/* установили заголовок исходя из заголовка команды на нужном языке плюс иконка */-->
+        <fmt:setLocale value="${sessionScope.locale}"/>
+        <fmt:setBundle basename="messages" var="i18n"/>
+
+        <title><fmt:message bundle="${i18n}" key="${title}"/></title>
+        <u:icon file="tea.png"/>
+    </head>
+
+    <body>
+        <!--/* верхняя неизменная часть */-->
+        <com:header-navigation/>
+
+        <!--/* здесь определяется запуск страницы для тела */-->
+        <div class="jumbotron">
+            <div class="container text-center top-buffer">
+                <c:url var="bodyUrl" value="../orders/main.jsp"></c:url>
+
+                <!--/* путь для страницы тела */-->
+                <c:if test="${not empty sessionScope.pagePath}">
+                    <c:url var="bodyUrl" value='../${sessionScope.pagePath}'></c:url>
+                </c:if>
+                <jsp:include page="${bodyUrl}"/>
+            </div>
+        </div>
+
+        <!--/* нижняя часть */-->
+        <jsp:directive.include file="../common/footer.jspx"/>
+    </body>
+</html>

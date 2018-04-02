@@ -1,0 +1,71 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          version="2.0" >
+
+    <fmt:setLocale value="${sessionScope.locale}"/>
+    <fmt:setBundle basename="messages" var="i18n"/>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!--A navigation bar is a navigation header that is placed at the top of the page:-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--set brand name in navigation header-->
+                <a class="navbar-brand" href="#"><fmt:message key="header.brand" bundle="${i18n}"/></a>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <!--set Orders/Заказы in navigation header-->
+                    <c:choose>
+                        <c:when test="${sessionScope.pageName eq 'Orders'}">
+                            <!--page Orders - nothing refer-->
+                            <li class="active"><a href="#"><fmt:message key="orders.title" bundle="${i18n}"/></a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <!--page not Orders - refer to Orders page-->
+                            <li><a href="${pageContext.request.contextPath}/frontController?command=orders"><fmt:message key="orders.title" bundle="${i18n}"/></a></li>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <!--set Coffee/Ассортимент in navigation header-->
+                    <c:choose>
+                        <c:when test="${sessionScope.pageName eq 'Coffee'}">
+                            <!--page Coffee - nothing refer-->
+                            <li class="active"><a href="#"><fmt:message key="coffee.title" bundle="${i18n}"/></a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <!--page not Coffee - refer to Coffee page-->
+                            <li><a href="${pageContext.request.contextPath}/frontController?command=coffee"><fmt:message key="coffee.title" bundle="${i18n}"/></a></li>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <!--set Configuration/Конфигурация in navigation header-->
+                    <c:choose>
+                        <c:when test="${sessionScope.pageName eq 'Configuration'}">
+                            <!--page Configuration - nothing refer-->
+                            <li class="active"><a href="#"><fmt:message key="configuration.title" bundle="${i18n}"/></a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <!--page not Configuration - refer to Configuration page-->
+                            <li><a href="${pageContext.request.contextPath}/frontController?command=configuration"><fmt:message key="configuration.title" bundle="${i18n}"/></a></li>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <!--set Ru and En in navigation header-->
+                    <c:url var="path" value="/frontController?command=${sessionScope.pageName}"></c:url>
+                    <li><a href="${path}&amp;locale=ru"><fmt:message key="header.locale.ru" bundle="${i18n}"/></a></li>
+                    <li><a href="${path}&amp;locale=en"><fmt:message key="header.locale.en" bundle="${i18n}"/></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</jsp:root>

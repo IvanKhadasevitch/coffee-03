@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+      xmlns:u="urn:jsptagdir:/WEB-INF/tags/utils"
+      xmlns:com="urn:jsptagdir:/WEB-INF/tags/common">
+
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html;charset UTF-8"/>
+
+
+    <head>
+        <fmt:setLocale value="${sessionScope.locale}"/>
+        <fmt:setBundle basename="messages" var="i18n"/>
+    </head>
+
+    <body>
+        <div class="col-sm-12 error"><fmt:message bundle="${i18n}" key="error"/></div>
+
+        <div style="text-align: center">
+            <a href="frontController?command=orders" class="buttonRefer"><fmt:message bundle="${i18n}" key="orders.refer.otherOrder"/></a>
+        </div>
+    </body>
+</html>
